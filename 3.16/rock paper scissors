@@ -1,0 +1,71 @@
+import java.util.*;
+
+public class programming_project_3_16_rps {
+	
+	public static int choice;
+	public static int cc;
+
+	public static void main(String[] args) {	
+	    Scanner input = new Scanner(System.in);	
+		System.out.println("Hello! Welcome to this game of Rock Paper Scisscors. Thank you for choosing to play :D");
+		System.out.println("Would you like to play the game? Type Y for yes or N for no.");
+		String replay = input.nextLine();
+		// allowing user to play game or not
+		while (replay.equalsIgnoreCase("Y")) {
+			enter_choice();
+			computer_choice();
+			gameplay();
+			// allowing user to continue game or not
+			System.out.println("Would you like to continue the game? Type Y for yes or N for no.");
+			replay = input.nextLine();
+		}
+	}
+	
+	// allows user to enter what move they want to do
+	public static void enter_choice() {
+		Scanner input = new Scanner(System.in);	
+		while (1 == 1) {
+			System.out.println("What move would you like to use? Type 0 for rock, 1 for paper, and 2 for scissors.");
+			choice = input.nextInt();
+			if (choice == 0) {
+					System.out.println("You have chosen rock.");
+					break;
+			} else if (choice == 1) {
+				System.out.println("You have chosen paper.");
+				break;
+			} else if (choice == 2) {
+				System.out.println("You have chosen scissors.");
+				break;
+			} else {
+				System.out.println("Invalid option!");
+			}
+		}
+	}
+	
+	// computer choice that is randomized
+	public static void computer_choice() {
+		Random rand = new Random();
+		cc = rand.nextInt(3);
+		if (cc == 0) {
+			System.out.println("The computer chose rock.");
+		} else if (cc == 1) {
+			System.out.println("The computer chose paper.");
+		} else {
+			System.out.println("The computer chose scissors.");
+		}
+	}
+	
+	// presents the result of the game
+	public static void gameplay() {
+		if (choice == cc) {
+			System.out.println("The game result is a tie.");
+		} else if ((choice == 0 && cc == 2) || (choice == 2 && cc == 1) || (choice == 1 && cc == 0)) {
+			System.out.println("You have won the game!");
+		} else {
+			System.out.println("You have lost the game :(");
+		}
+	}
+	
+	
+
+}
