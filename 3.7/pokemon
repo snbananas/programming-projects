@@ -1,0 +1,64 @@
+import java.util.*;
+
+public class programming_project_3_7 {
+	
+	public static String pokemon;
+	public static int level;
+	public static int attack;
+	public static int defense;
+	public static int base;
+	public static int stab;
+	public static int hp;
+	
+
+	public static void main(String[] args) {
+		battleStart();
+		damage();
+	}
+
+	public static void battleStart() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Another trainer is issuing a challenge!");
+		System.out.println("Zebstrika appeared.");
+		System.out.println("Which Pokemon do you choose?");
+	    pokemon = input.next();
+	    System.out.println("You chose " + pokemon);
+	    System.out.println("It's a Pokemon battle between " + pokemon + " and Zebstrika! Go!");
+	}
+	
+	public static void damage() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Zebstrika used Thunderbolt!");
+		System.out.println("Trainer, what are your " + pokemon + "'s stats?");
+		System.out.println("Level: ");
+		int level = input.nextInt();
+		System.out.println("Attack: ");
+		int attack = input.nextInt();
+		System.out.println("Defense: ");
+		int defense = input.nextInt();
+		System.out.println("Base: ");
+		int base = input.nextInt();
+		System.out.println("STAB: ");
+		int stab = input.nextInt();
+		System.out.println("HP: ");
+		int hp = input.nextInt();
+		double random = Math.random() * (1.0-0.85) + 0.85;
+		double modifier = stab * random;
+		double damage = (int) (((2 * level + 10.0)/250.0) * (attack/defense) + 2.0) * base * modifier;
+		hp -= damage;
+		hp = Math.max(hp, 0);
+		System.out.println(pokemon + " sustained " + damage + " points damage. HP is now " + hp);	
+		statsTable(level, attack, defense, base, stab, hp);
+	}
+	
+	public static void statsTable(int level, int attack, int defense, int base, int stab, int hp) {
+		System.out.println(pokemon + "'s stats:");
+		System.out.println("Level: " + level);
+		System.out.println("Attack: " + attack);
+		System.out.println("Defense: " + defense);
+		System.out.println("Base: " + base);
+		System.out.println("STAB: " + stab);
+		System.out.println("HP: " + hp);
+	} 
+	
+}
