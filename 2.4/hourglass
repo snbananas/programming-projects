@@ -1,0 +1,53 @@
+public class programming_project_2_4 {
+
+	public static void main(String[] args) {
+		first_last_lines();
+		top_half();
+		middle();
+		bottom_half();
+		first_last_lines();
+	}
+	
+	// first and last line of the hourglass
+	public static void first_last_lines() {
+		System.out.println("|\"\"\"\"\"\"\"\"\"\"|");
+	}
+	
+	// top half of the hourglass
+	public static void top_half() {
+		// how many times it runs
+		for (int i = 1; i <= 4; i++) {
+			// spaces increasing
+			for (int k = 1; k <= i; k++) 
+				System.out.print(" ");
+			System.out.print("\\");
+			// colons
+			for (int j = 1; j <= 10 - (2 * i); j++)
+				System.out.print(":");
+				
+			System.out.println("/");
+		}
+	}
+		
+	// middle lines
+	public static void middle() {
+		System.out.println("     ||     ");
+	}
+	
+		
+	// bottom half of the hourglass
+	public static void bottom_half() {
+		// how many times it runs
+		for (int i = 1; i <= 4; i++) {
+			// spaces decreasing
+			for (int k = 4; k >= i; k--)
+				System.out.print(" ");
+			System.out.print("/");
+			// colons
+			for (int j = 1; j <= (2 * i); j++)
+				System.out.print(":");
+			System.out.println("\\");
+		}
+	}
+}
+
